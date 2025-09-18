@@ -14,6 +14,7 @@ app.use(express.json());
 
 app.get("/user", userController.getAllUsers);
 app.post("/user", userController.addUser);
+app.get("/login", userController.login);
 
 app.listen(port, () => {
     console.log(`MyContacts API listening on port ${port}`)
