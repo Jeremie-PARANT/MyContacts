@@ -4,9 +4,14 @@ export const addContact = async (req, res) => {
     try
     {
         const { firstName, lastName, phone } = req.body;
-        const contact = new Contact({ firstName, lastName, phone, user: req.user });
+        if (phone.length > 20 || phone.length < 10)
+        {
+            return res.status(400).json({ message: "Doit faire entre 10 et 20 caractères." });
+        }
 
+        const contact = new Contact({ firstName, lastName, phone, user: req.user });
         await contact.save();
+
         res.status(201).json({ message: "Contact créé avec succès" });
     }
     catch (ex)

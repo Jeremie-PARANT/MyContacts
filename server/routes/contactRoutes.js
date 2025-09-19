@@ -30,7 +30,7 @@ const router = express.Router();
  *                 example: "Bibi"
  *               phone:
  *                 type: string
- *                 example: "123"
+ *                 example: "1234567891"
  *     responses:
  *       201:
  *         description: Created
