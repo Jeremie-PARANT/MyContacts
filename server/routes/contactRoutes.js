@@ -8,6 +8,13 @@ const router = express.Router();
  * /contact:
  *   post:
  *     summary: Create a new contact
+ *     parameters:
+ *       - in: header
+ *         name: token
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: token
  *     requestBody:
  *       required: true
  *       content:
@@ -24,9 +31,6 @@ const router = express.Router();
  *               phone:
  *                 type: string
  *                 example: "123"
- *               user:
- *                 type: string
- *                 example: "68cd1f4e499f8fe596887765"
  *     responses:
  *       201:
  *         description: Created

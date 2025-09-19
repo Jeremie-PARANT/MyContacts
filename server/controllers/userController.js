@@ -34,7 +34,8 @@ export const addUser = async (req, res) => {
 };
 
 export const login = async (req, res) => {
-    try {
+    try
+    {
         const { email, password } = req.body;
 
         const user = await User.findOne({ email: email });
@@ -45,14 +46,16 @@ export const login = async (req, res) => {
         }
 
         const passwordMatches = bcrypt.compareSync(password, user.password);
-        if (!passwordMatches) {
+        if
+            (!passwordMatches) {
             return res.status(401).json({ message: "Email ou mot de passe incorrect" });
         }
 
         var token = jwt.sign({ userId: user._id, email: user.email }, 'secret', { expiresIn: '1h' });
         res.status(200).json({ token });
     }
-    catch (ex) {
+    catch (ex)
+    {
         res.status(500).json({ message: ex.message });
     }
 };

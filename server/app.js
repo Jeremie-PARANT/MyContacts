@@ -4,6 +4,7 @@ import swaggerUi from "swagger-ui-express";
 import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
+import jwt from "jsonwebtoken";
 
 const app = express()
 const port = 3000
@@ -27,10 +28,22 @@ const options = {
 };
 
 const openapiSpecification = swaggerJsDoc(options);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 // Middlewares
 app.use(express.json());
+
+app.use("/contact",(req, res, next) => {
+    IsTokenValid(req);
+    next();
+})
+function IsTokenValid(req)
+{
+    const token = req.header("token");
+    // A faire !!! Ajouté le cas ou le token est incorrecte
+    var decoded = jwt.verify(token, "secret");
+    req.user = decoded.userId;
+}
 
 // Routes
 app.use("/user", userRoutes);
