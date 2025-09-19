@@ -4,8 +4,7 @@ const userSchema = new mongoose.Schema(
 {
     email: { type: String, required: true },
     password: { type: String, required: true },
-    createdAt: { type: Date, default: Date.now },
-    __v: { type: Number, select: false}
+    createdAt: { type: Date, default: Date.now }
 },
 { versionKey: false });
 

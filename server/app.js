@@ -2,8 +2,8 @@ import express from "express";
 import swaggerJsDoc  from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import mongoose from "mongoose";
-import * as userController from "./controllers/userController.js";
 import userRoutes from "./routes/userRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
 
 const app = express()
 const port = 3000
@@ -34,6 +34,7 @@ app.use(express.json());
 
 // Routes
 app.use("/user", userRoutes);
+app.use("/contact", contactRoutes);
 
 app.listen(port, () => {
     console.log(`MyContacts API listening on port ${port}`)
