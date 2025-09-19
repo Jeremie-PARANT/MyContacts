@@ -45,3 +45,20 @@ export const updateContact = async (req, res) => {
         res.status(500).json({ message: ex.message });
     }
 };
+
+export const deleteContact = async (req, res) => {
+    try {
+        const { id } = req.body;
+        const contact = await Contact.findById(id);
+
+        if (req.user != contact.user) {
+            res.status(401).json({ message: "Utilisateur ne correspond pas" });
+        }
+
+        await contact.deleteOne();
+        res.status(200).json({ message: "Contact supprimé" });
+    }
+    catch (ex) {
+        res.status(500).json({ message: ex.message });
+    }
+};

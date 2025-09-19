@@ -59,7 +59,7 @@ router.get("/", contactController.getContacts);
  * @swagger
  * /contact:
  *   patch:
- *     summary: Update
+ *     summary: Update contact
  *     parameters:
  *       - in: header
  *         name: token
@@ -87,9 +87,37 @@ router.get("/", contactController.getContacts);
  *                 type: string
  *                 example: "68cd58b4f7acf9b47ef682bc"
  *     responses:
- *       201:
+ *       200:
  *         description: Updated
  */
 router.patch("/", contactController.updateContact);
+
+/**
+ * @swagger
+ * /contact:
+ *   delete:
+ *     summary: Delete contact
+ *     parameters:
+ *       - in: header
+ *         name: token
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: token
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *                 example: "68cd58b4f7acf9b47ef682bc"
+ *     responses:
+ *       200:
+ *         description: Deleted
+ */
+router.delete("/", contactController.deleteContact);
 
 export default router;
