@@ -37,4 +37,22 @@ const router = express.Router();
  */
 router.post("/", contactController.addContact);
 
+/**
+ * @swagger
+ * /contact:
+ *   get:
+ *     summary: Get contacts from user
+ *     parameters:
+ *       - in: header
+ *         name: token
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: token
+ *     responses:
+ *       201:
+ *         description: Created
+ */
+router.get("/", contactController.getContacts);
+
 export default router;
