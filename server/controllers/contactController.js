@@ -24,3 +24,24 @@ export const getContacts = async (req, res) => {
         res.status(500).json({ message: ex.message });
     }
 };
+
+export const updateContact = async (req, res) => {
+    try {
+        const { firstName, lastName, phone, id } = req.body;
+        const contact = await Contact.findById(id);
+
+        if (req.user != contact.user) {
+            res.status(401).json({ message: "Utilisateur ne correspond pas" });
+        }
+
+        if (firstName) { contact.firstName = firstName; }
+        if (lastName) { contact.lastName = lastName; }
+        if (phone) { contact.phone = phone; }
+
+        await contact.save();
+        res.status(200).json({ message: "Contact modifié avec succès" });
+    }
+    catch (ex) {
+        res.status(500).json({ message: ex.message });
+    }
+};

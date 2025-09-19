@@ -55,4 +55,41 @@ router.post("/", contactController.addContact);
  */
 router.get("/", contactController.getContacts);
 
+/**
+ * @swagger
+ * /contact:
+ *   patch:
+ *     summary: Update
+ *     parameters:
+ *       - in: header
+ *         name: token
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: token
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *                 example: "Bibi"
+ *               lastName:
+ *                 type: string
+ *                 example: "Bibi"
+ *               phone:
+ *                 type: string
+ *                 example: "123"
+ *               id:
+ *                 type: string
+ *                 example: "68cd58b4f7acf9b47ef682bc"
+ *     responses:
+ *       201:
+ *         description: Updated
+ */
+router.patch("/", contactController.updateContact);
+
 export default router;
