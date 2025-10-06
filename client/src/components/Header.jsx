@@ -1,4 +1,10 @@
 import { NavLink } from "react-router";
+function Logout() {
+  console.log(localStorage.getItem("token"));
+  localStorage.removeItem("token");
+  console.log(localStorage.getItem("token"));
+}
+
 function Header() {
   return (
     <>
@@ -9,6 +15,9 @@ function Header() {
         <NavLink to="/register" className={({ isActive }) => isActive ? "active" : ""}>
           Register
         </NavLink>
+        <button onClick={Logout}>
+          Logout
+        </button>
       </nav>
     </>
   )

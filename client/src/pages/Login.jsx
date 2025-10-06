@@ -17,7 +17,8 @@ function App() {
       }
 
       const result = await response.json();
-      console.log(result);
+      localStorage.setItem("token", JSON.stringify(result));
+      console.log(localStorage.getItem("token"));
     } catch (error) {
       console.error(error.message);
     }
