@@ -7,7 +7,7 @@ const router = express.Router();
  * @swagger
  * /user:
  *   get:
- *     description: Get all Users
+ *     summary: Get all Users
  *     responses:
  *       200:
  *         description: Sucess

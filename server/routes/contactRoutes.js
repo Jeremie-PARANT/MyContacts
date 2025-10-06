@@ -14,7 +14,7 @@ const router = express.Router();
  *         required: true
  *         schema:
  *           type: string
- *         description: token
+ *         description: Token d'authentification (veuillez vous login)
  *     requestBody:
  *       required: true
  *       content:
@@ -48,7 +48,7 @@ router.post("/", contactController.addContact);
  *         required: true
  *         schema:
  *           type: string
- *         description: token
+ *         description: Token d'authentification (veuillez vous login)
  *     responses:
  *       201:
  *         description: Created
@@ -66,7 +66,7 @@ router.get("/", contactController.getContacts);
  *         required: true
  *         schema:
  *           type: string
- *         description: token
+ *         description: Token d'authentification (veuillez vous login)
  *     requestBody:
  *       required: true
  *       content:
@@ -103,7 +103,7 @@ router.patch("/", contactController.updateContact);
  *         required: true
  *         schema:
  *           type: string
- *         description: token
+ *         description: Token d'authentification (veuillez vous login)
  *     requestBody:
  *       required: true
  *       content:
