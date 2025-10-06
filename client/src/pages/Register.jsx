@@ -1,7 +1,7 @@
-import './App.css'
+import './Auth.css'
 import { useForm } from "react-hook-form";
 
-function App() {
+function Register() {
   const { register, handleSubmit } = useForm();
 
   async function signUp(data) {
@@ -32,9 +32,8 @@ function App() {
           <input type="password" placeholder="password" {...register("password")} />
           <input type="submit" />
         </form>
-        <button></button>
       </main>
     </>
   )
 }
-export default App
+export default Register
