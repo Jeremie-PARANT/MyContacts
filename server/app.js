@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 import jwt from "jsonwebtoken";
+import cors from "cors";
 
 const app = express()
 const port = 3000
@@ -32,6 +33,7 @@ app.use("/swagger", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 // Middlewares
 app.use(express.json());
+app.use(cors())
 
 app.use("/contact",(req, res, next) => {
     IsTokenValid(req);
