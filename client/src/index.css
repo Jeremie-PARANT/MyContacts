@@ -74,3 +74,29 @@ nav {
 a {
     margin : 0 10px;
 }
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  margin: 0 0 24px 0;
+}
+
+input {
+  margin: 6px 0;
+}
+
+form {
+  padding: 24px 18px;
+  border: 5px solid black;
+  border-radius: 14px;
+}

@@ -15,6 +15,9 @@ function Header() {
         <NavLink to="/register" className={({ isActive }) => isActive ? "active" : ""}>
           Register
         </NavLink>
+        <NavLink to="/contact/create" className={({ isActive }) => isActive ? "active" : ""}>
+          Create Contact
+        </NavLink>
         <button onClick={Logout}>
           Logout
         </button>
