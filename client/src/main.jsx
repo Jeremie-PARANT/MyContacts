@@ -7,6 +7,7 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import CreateContact from './pages/CreateContact.jsx'
 import GetContacts from "./pages/GetContacts.jsx";
+import UpdateContact from "./pages/UpdateContact.jsx";
 
 const root = document.getElementById("root");
 
@@ -18,6 +19,7 @@ ReactDOM.createRoot(root).render(
       <Route path="register" element={<Register />} />
       <Route path="contact/create" element={<CreateContact />} />
       <Route path="contact/get" element={<GetContacts />} />
+      <Route path="contact/update" element={<UpdateContact />} />
     </Routes>
   </BrowserRouter>,
 );

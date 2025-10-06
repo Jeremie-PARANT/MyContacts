@@ -37,12 +37,14 @@ function GetContacts() {
             <th>firstName</th>
             <th>lastName</th>
             <th>phone</th>
+            <th>id</th>
           </tr>
           {contacts.map((c) => (
             <tr key={c._id}>
               <td>{c.firstName}</td>
               <td>{c.lastName}</td>
               <td>{c.phone}</td>
+              <td>{c._id}</td>
             </tr>
           ))}
         </table>

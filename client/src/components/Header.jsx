@@ -19,7 +19,10 @@ function Header() {
           Create contact
         </NavLink>
         <NavLink to="/contact/get" className={({ isActive }) => isActive ? "active" : ""}>
-          Get contact
+          Get contacts
+        </NavLink>
+        <NavLink to="/contact/update" className={({ isActive }) => isActive ? "active" : ""}>
+          Update contact
         </NavLink>
         <button onClick={Logout}>
           Logout
