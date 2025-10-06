@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 
 function UpdateContact() {
   const { register, handleSubmit } = useForm();
-  async function save(data) {
+  async function update(data) {
     try {
       const localToken = JSON.parse(localStorage.getItem("token")).token;
       const response = await fetch("http://localhost:3000/contact", {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           "token": `${localToken}`
@@ -28,7 +28,7 @@ function UpdateContact() {
   return (
     <>
       <main>
-        <form className="flexCol" onSubmit={handleSubmit(save)}>
+        <form className="flexCol" onSubmit={handleSubmit(update)}>
           <h3>Update Contact</h3>
           <input type="text" placeholder="Firstname" {...register("firstName")} />
           <input type="text" placeholder="Lastname" {...register("lastName")} />
