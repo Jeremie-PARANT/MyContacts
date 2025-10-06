@@ -6,6 +6,7 @@ import Header from './components/Header.jsx'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import CreateContact from './pages/CreateContact.jsx'
+import GetContacts from "./pages/GetContacts.jsx";
 
 const root = document.getElementById("root");
 
@@ -16,6 +17,7 @@ ReactDOM.createRoot(root).render(
       <Route path="/" element={<Login />} />
       <Route path="register" element={<Register />} />
       <Route path="contact/create" element={<CreateContact />} />
+      <Route path="contact/get" element={<GetContacts />} />
     </Routes>
   </BrowserRouter>,
 );
