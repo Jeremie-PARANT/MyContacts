@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
+import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.css";
+import "alertifyjs/build/css/themes/default.css";
 
-function App() {
+function Login() {
   const { register, handleSubmit } = useForm();
 
   async function login(data) {
@@ -17,6 +20,8 @@ function App() {
 
       const result = await response.json();
       localStorage.setItem("token", JSON.stringify(result));
+
+      alertify.success("Connexion reussi");
       console.log(localStorage.getItem("token"));
     } catch (error) {
       console.error(error.message);
@@ -36,4 +41,4 @@ function App() {
     </>
   )
 }
-export default App
+export default Login

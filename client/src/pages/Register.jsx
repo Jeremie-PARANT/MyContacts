@@ -1,4 +1,7 @@
 import { useForm } from "react-hook-form";
+import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.css";
+import "alertifyjs/build/css/themes/default.css";
 
 function Register() {
   const { register, handleSubmit } = useForm();
@@ -16,6 +19,8 @@ function Register() {
       }
 
       const result = await response.json();
+
+      alertify.success("Inscription reussi");
       console.log(result);
     } catch (error) {
       console.error(error.message);
