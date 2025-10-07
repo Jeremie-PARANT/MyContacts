@@ -67,3 +67,23 @@ L’application permet de gérer une liste de contacts (CRUD) avec authentificat
 - **Jest** — Création de tests unitaires pour les endpoints (`/user`, `/contact`) afin de vérifier les fonctionnalités CRUD et l’authentification.  
 - **IA autorisée** — Utilisation d’outils d’IA pour générer rapidement des cas de tests représentatifs.
 
+### 💻 Frontend
+#### 🗂️ Pages
+- **Login** — Page de connexion.  
+- **Register** — Page d’inscription.  
+- **Contacts** — Affiche la liste des contacts, avec possibilité de suppression.  
+- **CreateContact** — Formulaire pour ajouter un nouveau contact.  
+- **EditContact** — Formulaire pour modifier un contact existant.  
+- **Header** — Composant commun affichant la navigation et le bouton de logout sur toutes les pages.
+
+#### ⭐ Favori (optionnel)
+- Favori à la création et mise à jour depuis le formulaire.  
+- Autres fonctionnalités non implémentées (filtre et autre).
+
+#### 🎨 Style et notifications
+- **CSS léger** — Mise en forme simple et fonctionnelle.  
+- **Alertify** — Notifications utilisateurs (succès, erreur, etc.).
+
+## ☁️ Hébergement
+- **Backend** : API déployée sur Render — [https://mycontacts-ucfc.onrender.com/](https://mycontacts-ucfc.onrender.com/)  
+- **Frontend** : Application déployée sur Netlify — [https://jeremie-mycontacts.netlify.app/](https://jeremie-mycontacts.netlify.app/)
