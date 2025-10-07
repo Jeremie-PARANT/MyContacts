@@ -71,9 +71,9 @@ L’application permet de gérer une liste de contacts (CRUD) avec authentificat
 #### 🗂️ Pages
 - **Login** — Page de connexion.  
 - **Register** — Page d’inscription.  
-- **Contacts** — Affiche la liste des contacts, avec possibilité de suppression.  
-- **CreateContact** — Formulaire pour ajouter un nouveau contact.  
-- **EditContact** — Formulaire pour modifier un contact existant.  
+- **Get Contacts** — Affiche la liste des contacts, avec possibilité de suppression.  
+- **Create Contact** — Formulaire pour ajouter un nouveau contact.  
+- **Update Contact** — Formulaire pour modifier un contact existant.  
 - **Header** — Composant commun affichant la navigation et le bouton de logout sur toutes les pages.
 
 #### ⭐ Favori (optionnel)
