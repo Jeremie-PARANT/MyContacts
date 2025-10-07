@@ -29,6 +29,29 @@ function GetContacts() {
     }
   }
 
+  async function remove(id) {
+    try {
+      const data = { id: id };
+      const localToken = JSON.parse(localStorage.getItem("token")).token;
+      const response = await fetch("http://localhost:3000/contact", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "token": `${localToken}`
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
   return (
     <>
       <main className="flexCenter">
@@ -48,6 +71,11 @@ function GetContacts() {
                 <td>{c.lastName}</td>
                 <td>{c.phone}</td>
                 <td>{c._id}</td>
+                <td>
+                  <button onClick={() => remove(c._id)}>
+                    Remove
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
