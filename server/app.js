@@ -6,12 +6,13 @@ import userRoutes from "./routes/userRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 import jwt from "jsonwebtoken";
 import cors from "cors";
+import 'dotenv/config'
 
 const app = express()
 const port = 3000
 
 // Database
-const uri = "mongodb+srv://admin:admin@mycluster.rbheu6l.mongodb.net/mycontacts?retryWrites=true&w=majority&appName=mycluster";
+const uri = process.env.DATABASE_URL;
 mongoose.connect(uri)
     .then(() => console.log("Connected to MongoDB"))
     .catch(ex => console.log("Connection error", ex));
@@ -42,8 +43,8 @@ app.use("/contact",(req, res, next) => {
 function IsTokenValid(req)
 {
     const token = req.header("token");
-    // A faire !!! Ajouté le cas ou le token est incorrecte + metre "secret" dans .env
-    var decoded = jwt.verify(token, "secret");
+    // TODO !!! Ajouté le cas ou le token est incorrecte
+    var decoded = jwt.verify(token, process.env.DATABASE_URL);
     req.user = decoded.userId;
 }
 
