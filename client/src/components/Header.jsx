@@ -1,8 +1,11 @@
 import { NavLink } from "react-router";
+import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.css";
+import "alertifyjs/build/css/themes/default.css";
+
 function Logout() {
-  console.log(localStorage.getItem("token"));
   localStorage.removeItem("token");
-  console.log(localStorage.getItem("token"));
+  alertify.success("Création reussi");
 }
 
 function Header() {

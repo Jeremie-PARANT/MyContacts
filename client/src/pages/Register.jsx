@@ -4,12 +4,12 @@ import "alertifyjs/build/css/alertify.css";
 import "alertifyjs/build/css/themes/default.css";
 
 function Register() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const { register, handleSubmit } = useForm();
 
   async function signUp(data) {
     try {
-      console.log(data)
-      const response = await fetch("http://localhost:3000/user", {
+      const response = await fetch(`${apiUrl}/user`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -22,7 +22,9 @@ function Register() {
 
       alertify.success("Inscription reussi");
       console.log(result);
-    } catch (error) {
+    }
+    catch (error) {
+      alertify.Error("Une erreur est survenu");
       console.error(error.message);
     }
   }

@@ -5,11 +5,13 @@ import "alertifyjs/build/css/alertify.css";
 import "alertifyjs/build/css/themes/default.css";
 
 function CreateContact() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const { register, handleSubmit } = useForm();
+
   async function save(data) {
     try {
       const localToken = JSON.parse(localStorage.getItem("token")).token;
-      const response = await fetch("http://localhost:3000/contact", {
+      const response = await fetch(`${apiUrl}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,8 +27,10 @@ function CreateContact() {
 
       alertify.success("Création reussi");
       console.log(result);
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error.message);
+      alertify.Error("Une erreur est survenu");
     }
   }
 

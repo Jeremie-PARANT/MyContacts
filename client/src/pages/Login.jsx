@@ -4,12 +4,13 @@ import "alertifyjs/build/css/alertify.css";
 import "alertifyjs/build/css/themes/default.css";
 
 function Login() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const { register, handleSubmit } = useForm();
 
   async function login(data) {
     try {
-      console.log(data)
-      const response = await fetch("http://localhost:3000/user/login", {
+      console.log(apiUrl)
+      const response = await fetch(`${apiUrl}/user/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -22,9 +23,10 @@ function Login() {
       localStorage.setItem("token", JSON.stringify(result));
 
       alertify.success("Connexion reussi");
-      console.log(localStorage.getItem("token"));
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error.message);
+      alertify.Error("Une erreur est survenu");
     }
   }
 

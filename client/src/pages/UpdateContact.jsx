@@ -5,12 +5,13 @@ import "alertifyjs/build/css/alertify.css";
 import "alertifyjs/build/css/themes/default.css";
 
 function UpdateContact() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const { register, handleSubmit } = useForm();
+
   async function update(data) {
     try {
-      console.log(data);
       const localToken = JSON.parse(localStorage.getItem("token")).token;
-      const response = await fetch("http://localhost:3000/contact", {
+      const response = await fetch(`${apiUrl}/contact`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -18,6 +19,7 @@ function UpdateContact() {
         },
         body: JSON.stringify(data),
       });
+
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
@@ -26,7 +28,9 @@ function UpdateContact() {
 
       alertify.success("Mise a jour reussi");
       console.log(result);
-    } catch (error) {
+    }
+    catch (error) {
+      alertify.Error("Une erreur est survenu");
       console.error(error.message);
     }
   }

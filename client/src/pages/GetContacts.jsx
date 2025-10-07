@@ -6,6 +6,7 @@ import "alertifyjs/build/css/alertify.css";
 import "alertifyjs/build/css/themes/default.css";
 
 function GetContacts() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
@@ -14,7 +15,7 @@ function GetContacts() {
   async function fetchContacts() {
     try {
       const localToken = JSON.parse(localStorage.getItem("token")).token;
-      const response = await fetch("http://localhost:3000/contact", {
+      const response = await fetch(`${apiUrl}/contact`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -22,14 +23,17 @@ function GetContacts() {
         }
       });
       if (!response.ok) {
+        alertify.Error("Une erreur est survenu");
         throw new Error(`Response status: ${response.status}`);
       }
 
       const result = await response.json();
       setContacts(result);
       console.log(result);
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error.message);
+      alertify.Error("Une erreur est survenu");
     }
   }
 
@@ -37,7 +41,7 @@ function GetContacts() {
     try {
       const data = { id: id };
       const localToken = JSON.parse(localStorage.getItem("token")).token;
-      const response = await fetch("http://localhost:3000/contact", {
+      const response = await fetch(`${apiUrl}/contact`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -53,8 +57,10 @@ function GetContacts() {
 
       alertify.success("Supression reussi");
       console.log(result);
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error.message);
+      alertify.Error("Une erreur est survenu");
     }
   }
 
