@@ -33,20 +33,24 @@ function GetContacts() {
     <>
       <main className="flexCenter">
         <table>
-          <tr>
-            <th>firstName</th>
-            <th>lastName</th>
-            <th>phone</th>
-            <th>id</th>
-          </tr>
-          {contacts.map((c) => (
+          <thead>
             <tr>
-              <td>{c.firstName}</td>
-              <td>{c.lastName}</td>
-              <td>{c.phone}</td>
-              <td>{c._id}</td>
+              <th>firstName</th>
+              <th>lastName</th>
+              <th>phone</th>
+              <th>id</th>
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            {contacts.map((c) => (
+              <tr key={c._id}>
+                <td>{c.firstName}</td>
+                <td>{c.lastName}</td>
+                <td>{c.phone}</td>
+                <td>{c._id}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </main>
     </>

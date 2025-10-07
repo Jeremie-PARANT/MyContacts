@@ -43,7 +43,6 @@ app.use("/contact",(req, res, next) => {
 function IsTokenValid(req)
 {
     const token = req.header("token");
-    // TODO !!! Ajouté le cas ou le token est incorrecte
     var decoded = jwt.verify(token, process.env.DATABASE_URL);
     req.user = decoded.userId;
 }
