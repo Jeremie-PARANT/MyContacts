@@ -1,5 +1,8 @@
 import './Contact.css'
 import { useForm } from "react-hook-form";
+import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.css";
+import "alertifyjs/build/css/themes/default.css";
 
 function UpdateContact() {
   const { register, handleSubmit } = useForm();
@@ -20,6 +23,8 @@ function UpdateContact() {
       }
 
       const result = await response.json();
+
+      alertify.success("Mise a jour reussi");
       console.log(result);
     } catch (error) {
       console.error(error.message);

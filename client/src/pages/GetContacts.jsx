@@ -1,6 +1,9 @@
 import './Contact.css'
 import star from '../assets/etoile.png'
 import { useEffect, useState } from "react";
+import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.css";
+import "alertifyjs/build/css/themes/default.css";
 
 function GetContacts() {
   const [contacts, setContacts] = useState([]);
@@ -47,6 +50,8 @@ function GetContacts() {
       }
 
       const result = await response.json();
+
+      alertify.success("Supression reussi");
       console.log(result);
     } catch (error) {
       console.error(error.message);
