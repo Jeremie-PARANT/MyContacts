@@ -31,7 +31,7 @@ function GetContacts() {
 
   return (
     <>
-      <main>
+      <main className="flexCenter">
         <table>
           <tr>
             <th>firstName</th>
@@ -40,7 +40,7 @@ function GetContacts() {
             <th>id</th>
           </tr>
           {contacts.map((c) => (
-            <tr key={c._id}>
+            <tr>
               <td>{c.firstName}</td>
               <td>{c.lastName}</td>
               <td>{c.phone}</td>
