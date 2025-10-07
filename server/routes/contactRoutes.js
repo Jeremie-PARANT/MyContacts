@@ -31,6 +31,9 @@ const router = express.Router();
  *               phone:
  *                 type: string
  *                 example: "1234567891"
+ *               favorite:
+ *                 type: bool
+ *                 example: false
  *     responses:
  *       201:
  *         description: Created
@@ -82,7 +85,10 @@ router.get("/", contactController.getContacts);
  *                 example: "Bibi"
  *               phone:
  *                 type: string
- *                 example: "123"
+ *                 example: "1234567891"
+ *               favorite:
+ *                 type: bool
+ *                 example: false
  *               id:
  *                 type: string
  *                 example: "68cd58b4f7acf9b47ef682bc"

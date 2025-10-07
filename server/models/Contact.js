@@ -7,6 +7,7 @@ const contactSchema = new mongoose.Schema(
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     phone: { type: String, required: true },
+    favorite: { type: Boolean },
     user: { type: Schema.Types.ObjectId, ref: 'User' }
 },
 { versionKey: false });

@@ -33,6 +33,10 @@ function CreateContact() {
           <input type="text" placeholder="Firstname" {...register("firstName")} />
           <input type="text" placeholder="Lastname" {...register("lastName")} />
           <input type="text" placeholder="Phone" {...register("phone")} />
+          <div>
+            <label>Favorite : </label>
+            <input type="checkbox" placeholder="Favorite" {...register("favorite")} />
+          </div>
           <input type="submit" />
         </form>
       </main>

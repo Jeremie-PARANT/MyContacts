@@ -5,6 +5,7 @@ function UpdateContact() {
   const { register, handleSubmit } = useForm();
   async function update(data) {
     try {
+      console.log(data);
       const localToken = JSON.parse(localStorage.getItem("token")).token;
       const response = await fetch("http://localhost:3000/contact", {
         method: "PATCH",
@@ -34,6 +35,10 @@ function UpdateContact() {
           <input type="text" placeholder="Lastname" {...register("lastName")} />
           <input type="text" placeholder="Phone" {...register("phone")} />
           <input type="text" placeholder="id" {...register("id")} />
+          <div>
+            <label>Favorite : </label>
+            <input type="checkbox" placeholder="Favorite" {...register("favorite")} />
+          </div>
           <input type="submit" />
         </form>
       </main>

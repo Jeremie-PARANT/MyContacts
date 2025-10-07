@@ -3,3 +3,7 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
+
+.favorite {
+    width: 30px;
+}

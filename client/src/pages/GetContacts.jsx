@@ -1,4 +1,5 @@
 import './Contact.css'
+import star from '../assets/etoile.png'
 import { useEffect, useState } from "react";
 
 function GetContacts() {
@@ -62,6 +63,7 @@ function GetContacts() {
               <th>lastName</th>
               <th>phone</th>
               <th>id</th>
+              <th>Favorite</th>
             </tr>
           </thead>
           <tbody>
@@ -71,6 +73,9 @@ function GetContacts() {
                 <td>{c.lastName}</td>
                 <td>{c.phone}</td>
                 <td>{c._id}</td>
+                <td>
+                  {c.favorite ? (<img src={star} className="favorite" alt="Favorite" />) : ""}
+                </td>
                 <td>
                   <button onClick={() => remove(c._id)}>
                     Remove
