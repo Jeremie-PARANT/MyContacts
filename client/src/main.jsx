@@ -8,7 +8,6 @@ import Register from './pages/Register.jsx'
 import CreateContact from './pages/CreateContact.jsx'
 import GetContacts from "./pages/GetContacts.jsx";
 import UpdateContact from "./pages/UpdateContact.jsx";
-import DeleteContact from "./pages/DeleteContact.jsx";
 
 const root = document.getElementById("root");
 
@@ -21,7 +20,6 @@ ReactDOM.createRoot(root).render(
       <Route path="contact/create" element={<CreateContact />} />
       <Route path="contact/get" element={<GetContacts />} />
       <Route path="contact/update" element={<UpdateContact />} />
-      <Route path="contact/delete" element={<DeleteContact />} />
     </Routes>
   </BrowserRouter>,
 );

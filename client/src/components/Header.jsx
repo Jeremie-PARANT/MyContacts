@@ -24,9 +24,6 @@ function Header() {
         <NavLink to="/contact/update" className={({ isActive }) => isActive ? "active" : ""}>
           Update contact
         </NavLink>
-        <NavLink to="/contact/delete" className={({ isActive }) => isActive ? "active" : ""}>
-          Delete contact
-        </NavLink>
         <button onClick={Logout}>
           Logout
         </button>
